@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Dia dos Namorados 💖</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
     <style>
         body {
@@ -46,7 +47,7 @@
 
         .game-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
             gap: 10px;
             justify-content: center;
             margin: 20px auto;
@@ -90,9 +91,9 @@
         iframe {
             width: 100%;
             max-width: 400px;
-            height: auto;
             aspect-ratio: 9 / 16;
             border-radius: 20px;
+            border: none;
         }
 
         @keyframes fadeIn {
@@ -112,7 +113,12 @@
             }
 
             .love-letter {
-                font-size: 1.2em;
+                font-size: 1.3em;
+            }
+
+            .heart {
+                width: 50px;
+                height: 50px;
             }
         }
 
@@ -122,12 +128,12 @@
             }
 
             button {
-                font-size: 0.9em;
+                font-size: 1em;
                 padding: 12px 24px;
             }
 
             .love-letter {
-                font-size: 1em;
+                font-size: 1.1em;
             }
 
             .game-container {
@@ -135,8 +141,8 @@
             }
 
             .heart {
-                width: 50px;
-                height: 50px;
+                width: 45px;
+                height: 45px;
             }
         }
     </style>
@@ -175,8 +181,7 @@
 
 <div id="step5" class="step hidden">
     <p>Assista essa mensagem especial 💌 <br> OBS: Se possível, coloca na qualidade máxima momo 🥰</p>
-    <iframe src="https://www.youtube.com/embed/DEhiqJIOhaY?vq=hd1080&rel=0&modestbranding=1"
-    title="Declaração" frameborder="0" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/DEhiqJIOhaY?vq=hd1080&rel=0&modestbranding=1" title="Declaração" allowfullscreen></iframe>
 </div>
 
 <script>
