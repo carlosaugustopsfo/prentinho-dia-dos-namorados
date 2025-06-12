@@ -1,0 +1,158 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Dia dos Namorados 💖</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom, #ffdce0, #ffeaea);
+            text-align: center;
+            padding: 20px;
+            color: #4b2e2e;
+        }
+        h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+        .hidden {
+            display: none;
+        }
+        .step {
+            margin-top: 30px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 1em;
+            background-color: #ff99aa;
+            border: none;
+            border-radius: 10px;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        button:hover {
+            background-color: #ff7791;
+        }
+        .game-container {
+            display: grid;
+            grid-template-columns: repeat(5, 60px);
+            gap: 10px;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        #usImage {
+            display: block;
+            margin: 0 auto;
+            margin-bottom: 20px;
+        }
+
+        .heart {
+            width: 60px;
+            height: 60px;
+            background: url('coracao.png') center/contain no-repeat;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .heart:hover {
+            transform: scale(1.1);
+        }
+        .love-letter {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            width: 90%;
+            max-width: 500px;
+            margin: 20px auto;
+            box-shadow: 0 0 10px rgba(255, 100, 120, 0.3);
+            font-family: 'Great Vibes', cursive;
+            font-size: 1.5em;
+        }
+        @keyframes fadeIn {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+    </style>
+</head>
+<body>
+
+<!--<audio autoplay loop>
+    <source src="vem_ser_minha.mp3" type="audio/mpeg">
+
+</audio> OBS: Môio tropa, a música não funfou :| )-->
+
+<h1>Feliz Dia dos Namorados!</h1>
+
+<div id="step1" class="step">
+    <p>Você está pronta para uma pequena aventura romântica? 💌</p>
+    <button onclick="showStep(2)">Simm, estouuu!</button>
+</div>
+
+<div id="step2" class="step hidden">
+    <p>Bem, então para começar, encontre o coração verdadeiro entre os outros 💘</p>
+    <div class="game-container" id="game"></div>
+</div>
+
+<div id="step3" class="step hidden">
+    <div class="love-letter">
+        Minha princesa, meu coração é todinho seu. Mesmo ainda estando longe um do outro, eu sei que vamos vencer essa distância e passar por qualquer dificuldade juntinhos!
+        Cada pedacinho de mim sente saudade de você. Que esse seja só o primeiro de muitos presentinhos especiais que vamos fazer um para o outro.
+        Te amo muito, amor da minha vida! 💖
+            Ass: Carlos Augusto
+    </div>
+    <button onclick="showStep(4)">Continuar</button>
+</div>
+
+<div id="step4" class="step hidden">
+    <p>Agora, aqui vai uma pequena recordação nossa ❤️ <br>
+        (PS: Um dia espero que a gente tenha bastante fotinhas juntinhos hehehe)
+    </p>
+    <img src="nossa_foto.jpg" alt="Imagem do casal" id="usImage" style="max-width: 42%; border-radius: 20px; box-shadow: 0 0 15px rgba(0,0,0,0.2);">
+    <button onclick="showStep(5)">Ver última surpresa</button>
+</div>
+
+<div id="step5" class="step hidden">
+    <p>Assista essa mensagem especial 💌 <br> OBS: Se possível, coloca na qualidade máxima momo 🥰</p>
+    <iframe width="315" height="560" src="https://www.youtube.com/embed/DEhiqJIOhaY?vq=hd1080&rel=0&modestbranding=1"
+ title="Declaração" frameborder="0" allowfullscreen style="border-radius: 20px;"></iframe>
+</div>
+
+<script>
+    let heartGameReady = false;
+    function showStep(n) {
+        document.getElementById('step' + (n - 1)).classList.add('hidden');
+        document.getElementById('step' + n).classList.remove('hidden');
+        if (n === 2 && !heartGameReady) {
+            setupGame();
+        }
+    }
+
+    function setupGame() {
+        const game = document.getElementById('game');
+        game.innerHTML = '';
+        const totalHearts = 20;
+        const realHeartIndex = Math.floor(Math.random() * totalHearts);
+        for (let i = 0; i < totalHearts; i++) {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.onclick = () => {
+                if (i === realHeartIndex) {
+                    showStep(3);
+                } else {
+                    heart.style.opacity = 0.3;
+                    heart.style.pointerEvents = 'none';
+                }
+            };
+            game.appendChild(heart);
+        }
+        heartGameReady = true;
+    }
+</script>
+
+</body>
+</html>
